@@ -1,6 +1,7 @@
 # Gestalt
 
 [![NPM Version](https://img.shields.io/npm/v/gestalt.svg)](https://www.npmjs.com/package/gestalt) [![gestalt](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/x99ctf/master&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/x99ctf/runs)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fchristianvuerings%2Fgestalt.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fchristianvuerings%2Fgestalt?ref=badge_shield)
 
 Gestalt is a set of React UI components that enforces Pinterest’s design language. We use it to streamline communication between designers and developers by enforcing a bunch of fundamental UI components. This common set of components helps raise the bar for UX & accessibility across Pinterest.
 
@@ -93,3 +94,7 @@ Or via yarn:
 ```bash
 yarn add @types/gestalt
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fchristianvuerings%2Fgestalt.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fchristianvuerings%2Fgestalt?ref=badge_large)
