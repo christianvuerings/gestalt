@@ -26,11 +26,39 @@ export type IconColor =
   | 'white';
 
 type Props = {|
+  /**
+   * Label for the component used for screen readers.
+   *
+   * See the [Accessibility guidelines](https://gestalt.pinterest.systems/Icon#Accessibility) for details on proper usage.
+   */
   accessibilityLabel: string,
+  /**
+   * Colors to apply to the Icon. We advise to only use primary colors.
+   *
+   * See the [primary-color combinations](https://gestalt.pinterest.systems/Icon#Primary-color-combinations) variant to learn more.
+   */
   color?: IconColor,
+  /**
+   * SVG icon from the Gestalt icon library to use within Icon.
+   *
+   * See the [icon combinations](https://gestalt.pinterest.systems/Icon#Icon-combinations) variant to learn more.
+   */
   icon?: $Keys<typeof icons>,
+  /**
+   * Defines a new icon different from the built-in Gestalt icons.
+   *
+   * See the [icon and SVG](https://gestalt.pinterest.systems/Icon#Size-and-Color-combinations) guidelines to explore the Gestalt icon library.
+   */
   dangerouslySetSvgPath?: {| __path: string |},
+  /**
+   * Properly positions Icon relative to an inline element, such as Text using the inline property.
+   *
+   * See the [inline](https://gestalt.pinterest.systems/Icon#Accessibility) for details on proper usage.
+   */
   inline?: boolean,
+  /**
+   * Use a number for pixel sizes or a string for percentage based sizes.
+   */
   size?: number | string,
 |};
 
@@ -64,16 +92,14 @@ const flipOnRtlIconNames = [
 /**
  * https://gestalt.pinterest.systems/Icon
  */
-export default function Icon(props: Props): Node {
-  const {
-    accessibilityLabel,
-    color = 'gray',
-    dangerouslySetSvgPath,
-    icon,
-    inline,
-    size = 16,
-  } = props;
-
+export default function Icon({
+  accessibilityLabel,
+  color = 'gray',
+  dangerouslySetSvgPath,
+  icon,
+  inline = false,
+  size = 16,
+}: Props): Node {
   const cs = classnames(
     flipOnRtlIconNames.includes(icon) && styles.rtlSupport,
     styles.icon,
