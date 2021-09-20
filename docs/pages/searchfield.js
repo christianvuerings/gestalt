@@ -4,7 +4,7 @@ import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
-import { type DocGen } from '../components/docgen.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
 export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -314,3 +314,9 @@ function SearchFieldExample() {
       },
     ]}
 */
+
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen('SearchField') },
+  };
+}
