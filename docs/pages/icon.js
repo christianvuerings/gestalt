@@ -65,7 +65,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
             defaultCode={`
   <Flex gap={2}>
     <Icon icon="sound" accessibilityLabel="" color="darkGray" />
-    <Text size="ls" weight="bold">24 monthly views</Text>
+    <Text size="lg" weight="bold">24 monthly views</Text>
   </Flex>`}
           />
           <MainSection.Card
@@ -197,7 +197,14 @@ Use Button to allow users to take an action.
 }
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  const generatedDocGen = await docgen('Icon');
+  if (generatedDocGen?.props?.icon?.flowType) {
+    generatedDocGen.props.icon.flowType = {
+      name: 'union',
+      raw: (Icon?.icons ?? []).map((icon) => `'${icon}'`).join(' | '),
+    };
+  }
   return {
-    props: { generatedDocGen: await docgen('Icon') },
+    props: { generatedDocGen },
   };
 }
